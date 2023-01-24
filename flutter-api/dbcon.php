@@ -1,0 +1,11 @@
+<?php
+    define('HOST','localhost');
+    define('USER','root');
+    define('PASS','12345678');
+    define('DB', 'db_flutter');
+
+    $connect = mysqli_connect(HOST,USER,PASS,DB) or die('Not Connect');
+    // $connect=mysqli_connect('localhost','root','12345678','db_flutter');
+    mysqli_set_charset($connect,'utf8');
+
+?>
