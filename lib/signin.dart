@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'screens/dashboard.dart';
 
@@ -26,8 +27,8 @@ class _SignInState extends State<SignIn> {
     final datauser = jsonDecode(response.body);
     //print(datauser);
     if (datauser == "Success") {
-      //SharedPreferences preferences = await SharedPreferences.getInstance();
-      //preferences.setString('email', usernameController.text);
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      preferences.setString('email', usernameController.text);
 
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Dashboard()));
       Fluttertoast.showToast(
